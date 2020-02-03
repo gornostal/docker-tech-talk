@@ -4,28 +4,24 @@ services:
   api:
     container_name: star-api
     image: star-api
-    build: .
+    build: ./api
     environment:
       - MONGO_URL=mongodb://mongodb:27017/star
       - NODE_ENV=development
     ports:
       - 8000:8000
-    volumes:
-      - ./api:/opt/app
     depends_on:
       - mongodb
 
   ui:
     container_name: star-ui
     image: star-ui
-    build: .
+    build: ./ui
     environment:
       - NODE_ENV=development
       - API_BASE_URL=http://localhost:8000
     ports:
-      - 80:8000
-    volumes:
-      - ./ui:/opt/app
+      - 3000:80
 
   mongodb:
       image: mongo:4.2
