@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Star API",
+            "type": "node",
+            "request": "attach",
+            "protocol": "inspector",
+            "port": 9229,
+            "localRoot": "${workspaceRoot}/api",
+            "remoteRoot": "/opt/app"
+        }
+    ]
+}
+
+

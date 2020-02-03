@@ -11,6 +11,7 @@ services:
     command: sleep infinity
     ports:
       - 8000:8000
+      - 9229:9229
     volumes:
       - ./api:/opt/app:delegated
       - ./dev-files/.bashrc:/root/.bashrc
