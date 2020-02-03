@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  ui:
+    container_name: star-ui
+    image: star-ui
+    build: ./ui
+    environment:
+      - NODE_ENV=development
+      - API_BASE_URL=http://localhost:8000
+    ports:
+      - 3000:80
+    networks:
+      - star-dev
+
+networks:
+  star-dev:
+    external: true
