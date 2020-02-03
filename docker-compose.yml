@@ -11,7 +11,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./api:/opt/app
+      - ./api:/opt/app:delegated
     depends_on:
       - mongodb
 
