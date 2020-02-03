@@ -3,13 +3,15 @@ version: '3'
 services:
   api:
     container_name: star-api
-    image: star-api
-    build: ./api
+    image: node:12
     environment:
       - MONGO_URL=mongodb://mongodb:27017/star
       - NODE_ENV=development
+    command: sleep infinity
     ports:
       - 8000:8000
+    volumes:
+      - ./api:/opt/app
     depends_on:
       - mongodb
 
