@@ -9,14 +9,13 @@ services:
       - NODE_ENV=development
       - HOSTNAME=star-api
     command: sleep infinity
-    user: 1000:1000
     ports:
       - 8000:8000
       - 9229:9229
     volumes:
       - ./api:/opt/app:delegated
-      - ./dev-files/.bashrc:/home/node/.bashrc
-      - $HOME/.bash_history:/home/node/.bash_history
+      - ./dev-files/.bashrc:/root/.bashrc
+      - $HOME/.bash_history:/root/.bash_history
     networks:
       - star-dev
 
