@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+service=$1
+shift
+dc_command=$@
+
+if [ "$dc_command" = "exec" ]; then
+    exec docker exec -it star-$service bash
+elif [[ ! -z "$service" ]] && [[ ! -z "$@" ]]; then
+    exec docker-compose -f docker-compose.$service.yml $dc_command
+else
+    echo "Usage:
+
+    ./dev [service] [command]
+
+    [service] is sub-string that you have in the name of a docker-compose file between docker-compose. and .yml
+    [command] is any valid docker-compose command, like 'up -d' or 'ps'
+              if command is 'exec' it will give you a bash prompt within a container
+
+Examples:
+    ./dev api up -d   # will bring up services defined in docker-compose.api.yml
+    ./dev api exec    # will give you a bash prompt of the api container"
+
+    exit 1
+fi
