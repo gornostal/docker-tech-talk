@@ -7,7 +7,7 @@ services:
     environment:
       - MONGO_DATA_DIR=/data/db
     volumes:
-      - ./data/db:/data/db
+      - ./data/db:/data/db:cached
     ports:
         - 27017:27017
     networks:
